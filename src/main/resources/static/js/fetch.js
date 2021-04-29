@@ -41,7 +41,7 @@ export async function loadBoard() {
     return await response.json();
 }
 
-const url = "http://localhost:8080/rooms/" + getRoomId() + "/board";
+const url = "/rooms/" + getRoomId() + "/board";
 
 function getRoomId(){
     const path = window.location.pathname;
@@ -53,7 +53,7 @@ function getRoomId(){
 
 // Room fetch
 export async function makeRoom(name) {
-    const response = await fetch("http://localhost:8080/rooms", {
+    const response = await fetch("/rooms", {
         method: "POST",
         body: JSON.stringify({name}),
         headers: {"Content-Type": "application/json; charset=UTF-8"}
@@ -62,7 +62,7 @@ export async function makeRoom(name) {
 }
 
 export async function deleteRoom(roomId) {
-    const response = await fetch("http://localhost:8080/rooms/" + roomId, {
+    const response = await fetch("/rooms/" + roomId, {
         method: "POST",
         headers: {"Content-Type": "application/json; charset=UTF-8"}
     })
@@ -74,6 +74,6 @@ export async function deleteRoom(roomId) {
 
 export async function loadGame(roomId) {
     location.href = "/rooms/" + roomId +  "/board";
-    const response = await fetch("http://localhost:8080/rooms/" + roomId + "/board/load");
-    return response.json();
+    const response = await fetch("/rooms/" + roomId + "/board/load");
+    return await response.json();
 }

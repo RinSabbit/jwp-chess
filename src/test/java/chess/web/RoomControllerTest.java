@@ -41,7 +41,7 @@ class RoomControllerTest {
             .then().log().all()
             .statusCode(HttpStatus.OK.value())
             .contentType(MediaType.TEXT_HTML_VALUE)
-            .body(containsString("N E W  R O O M"));
+            .body(containsString("WOOWA CHESS"));
     }
 
     @Test

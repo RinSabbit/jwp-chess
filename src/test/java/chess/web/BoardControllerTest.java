@@ -49,23 +49,12 @@ class BoardControllerTest {
         service.getNewBoardById(1);
     }
 
-    @DisplayName("초기화된 보드를 가져온다 - GET")
+    @DisplayName("새로 시작하거나 재시작시 초기화된 보드를 가져온다 - GET")
     @Test
     void getNewBoard() {
         RestAssured.given().log().all()
             .accept(MediaType.APPLICATION_JSON_VALUE)
-            .when().get("/rooms/{id}/board/init", roomId)
-            .then().log().all()
-            .statusCode(HttpStatus.OK.value())
-            .body("size()", is(1));
-    }
-
-    @DisplayName("재시작하면 새 보드를 가져온다 - POST")
-    @Test
-    void restart() {
-        RestAssured.given().log().all()
-            .accept(MediaType.APPLICATION_JSON_VALUE)
-            .when().post("/rooms/{id}/board/restart", roomId)
+            .when().get("/rooms/{id}/board/start", roomId)
             .then().log().all()
             .statusCode(HttpStatus.OK.value())
             .body("size()", is(1));
