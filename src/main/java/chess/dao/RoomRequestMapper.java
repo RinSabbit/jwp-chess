@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 public class RoomRequestMapper implements RowMapper<Room> {
 
     private static final String ROOM_ID = "id";
-    private static final String ROOM_NAME = "name";
+    private static final String ROOM_NAME = "r_name";
 
     @Override
     public Room mapRow(ResultSet resultSet, int rowNumber) throws SQLException {

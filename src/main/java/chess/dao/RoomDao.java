@@ -27,7 +27,7 @@ public class RoomDao {
     }
 
     public void insert(String name) {
-        String query = "insert into room (name) values ?";
+        String query = "insert into room (r_name) values (?)";
         jdbcTemplate.update(query, name);
     }
 
