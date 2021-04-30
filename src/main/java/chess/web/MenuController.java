@@ -23,10 +23,4 @@ public class MenuController {
         model.addAttribute("room-name", id);
         return "game";
     }
-
-    @ResponseBody
-    @GetMapping("/load")
-    public ResponseEntity<BoardDto> loadBoard(@PathVariable int id) {
-        return ResponseEntity.ok(new BoardDto(service.findBoardById(id)));
-    }
 }

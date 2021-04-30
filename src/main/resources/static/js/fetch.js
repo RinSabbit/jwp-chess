@@ -58,7 +58,7 @@ export async function makeRoom(name) {
         body: JSON.stringify({name}),
         headers: {"Content-Type": "application/json; charset=UTF-8"}
     });
-    location.href = response.url;
+    location.href = "/";
 }
 
 export async function deleteRoom(roomId) {
@@ -68,12 +68,7 @@ export async function deleteRoom(roomId) {
     })
         .then((response) => {
             alert('방을 삭제했습니다.');
-            location.href = response.url
+            location.href = "/";
         });
 }
 
-export async function loadGame(roomId) {
-    location.href = "/rooms/" + roomId +  "/board";
-    const response = await fetch("/rooms/" + roomId + "/board/load");
-    return await response.json();
-}

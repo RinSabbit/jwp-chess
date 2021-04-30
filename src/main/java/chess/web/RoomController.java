@@ -17,14 +17,12 @@ public class RoomController {
     private final RoomService service;
 
     @PostMapping
-    public String add(@RequestBody RoomRequestDto dto) {
+    public void add(@RequestBody RoomRequestDto dto) {
         service.add(dto.getName());
-        return "redirect:/";
     }
 
     @PostMapping("/{id}")
-    public String delete(@PathVariable int id) {
+    public void delete(@PathVariable int id) {
         service.delete(id);
-        return "redirect:/";
     }
 }

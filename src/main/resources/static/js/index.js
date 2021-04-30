@@ -1,4 +1,4 @@
-import {deleteRoom, loadGame, makeRoom} from "./fetch.js"
+import {deleteRoom, makeRoom} from "./fetch.js"
 
 const main = {
     init: function () {
@@ -17,7 +17,7 @@ const main = {
         const $playGames = document.querySelectorAll(".room-name");
         $playGames.forEach(game => game.addEventListener("click", async ({target}) => {
             const gameId = target.closest(".room").id;
-            await loadGame(gameId);
+            location.href = "/rooms/" + gameId +  "/board";
         }));
     },
 
